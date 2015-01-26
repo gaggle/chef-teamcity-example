@@ -12,9 +12,10 @@ BOXES = [
     chef: {
       json: {
         'teamcity' => {
+          'version' => '9.0.1',
           'password' => '$1$ByY03mDX$4pk9wp9bC19yB6pxSoVB81',
           'server' => {
-            # 'backup' => 'file:///vagrant/tmp/TeamCity_Backup_20141216_154715.zip',
+            'backup' => 'file:///vagrant/datasets/TeamCity_Backup_9.0.1_Devdata.zip',
             'database' => {
               'username' => 'postgres',
               'password' => '3175bce1d3201d16594cebf9d7eb3f9d',
