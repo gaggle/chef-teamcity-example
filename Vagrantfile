@@ -83,7 +83,7 @@ Vagrant.configure(2) do |config|
       end
 
       node_config.vm.provision :chef_solo do |chef|
-        # chef.custom_config_path = 'solo.rb'
+        chef.custom_config_path = 'solo.rb'
         chef.json = node[:chef][:json]
         chef.add_recipe "apt"
         chef.add_recipe "java"
