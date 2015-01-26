@@ -78,15 +78,13 @@ Vagrant.configure(2) do |config|
 
       node_config.vm.provider :virtualbox do |box|
         box.customize ['modifyvm', :id, '--name', node[:hostname]]
-        # box.customize ['modifyvm', :id, '--memory', node[:ram]]
-        # box.customize ['modifyvm', :id, '--cpus', node[:cpus]]
+        box.customize ['modifyvm', :id, '--memory', node[:ram]]
+        box.customize ['modifyvm', :id, '--cpus', node[:cpus]]
       end
 
       node_config.vm.provision :chef_solo do |chef|
         chef.custom_config_path = 'solo.rb'
         chef.json = node[:chef][:json]
-        chef.add_recipe "apt"
-        chef.add_recipe "java"
         chef.run_list = node[:chef][:run_list]
       end
     end
